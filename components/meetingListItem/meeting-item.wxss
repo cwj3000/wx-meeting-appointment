@@ -1,0 +1,98 @@
+.meeting-list .meeting-list-item {
+	height: auto;
+	width: 700rpx;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	border-radius: 30rpx;
+	margin: 20rpx auto;
+}
+
+.meeting-list-item .item-title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 700rpx;
+	height: 80rpx;
+	background-color: #E3EFF8;
+	border-top-left-radius: 30rpx;
+	border-top-right-radius: 30rpx;
+	line-height: 80rpx;
+}
+.meeting-list .meeting-list-item .item-title-name {
+	font-size: 32rpx;
+	font-weight: bold;
+	flex:4;
+}
+
+.meeting-list .meeting-list-item .item-title-id,.item-title-state {
+	flex: 2;
+}
+
+.meeting-list-item .item-title .item-img {
+	width: 30rpx;
+	height: 30rpx;
+	flex: 0.5;
+	margin: 20rpx;
+}
+
+.meeting-list .meeting-list-item .item-content {
+	display: flex;
+	flex-direction: column;
+}
+	.item-title .item-title-state {
+		width: 140rpx;
+		height: 50rpx;
+		background-color: #004796;
+		border-radius: 40rpx;
+		color: #fff;
+		text-align: center;
+		line-height: 50rpx;
+	}
+	
+	.item-content {
+		padding: 0 25rpx;
+	}
+	
+	.item-content-1,
+	.item-content-2,
+	.item-content-3,
+	.item-content-4,
+	.item-content-5,
+	.item-content-6,
+	.item-content-handle {
+		height: 80rpx;
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+		border-bottom: 1rpx solid #eee;
+		line-height: 100rpx;
+	}
+	
+	.item-content-1-title {
+		font-size: 28rpx;
+		font-weight: bold;
+		color: #242424;
+	}
+
+.item-content-1-detail {
+		font-size: 24rpx;
+		font-weight: bold;
+		color: #797979;
+	}
+
+.itme-content-handle {
+	width: 700rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+  border-bottom: none;
+}
+
+.handle-img {
+	width: 30rpx;
+	height: 30rpx;
+	margin-right: 50rpx;
+	}
+	

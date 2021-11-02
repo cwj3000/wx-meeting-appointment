@@ -1,0 +1,43 @@
+<!-- edit.wxml -->
+<view class="form-container">
+	<form bindsubmit='formSubmit' bindreset='formReset' class="formContent">
+		<view class='form-item form-list' >
+			<view><text class="require">*</text>会议名称</view>
+			<input name="name" value="{{name}}" type='text' placeholder-style='hint-style' placeholder='请输入会议名称'></input>
+		</view>
+		<view class='form-item'>
+			<view><text class="require">*</text>开始时间</view>
+			<input name="begin_time" name="{{beginTime}}" type='text' placeholder-style='hint-style' placeholder='请输入开始时间'></input>
+		</view>
+		<view class='form-item'>
+			<view><text class="require">*</text>结束时间</view>
+			<input name="end_time" value="{{endTime}}" type='text' placeholder-style='hint-style' placeholder='请输入结束时间'></input>
+		</view>
+		<view class='form-item'>
+			<view><text class="require">*</text>会议室</view>
+			<input name="meetingRoom" value="{{meetingRoom}}" type='text' placeholder-style='hint-style' placeholder='请输入会议室'></input>
+		</view>
+		<view class='form-item'>
+			<text>主讲人</text>
+			<input name="speaker" value="{{speaker}}" type='text' placeholder-style='hint-style' placeholder='请输入主讲人'></input>
+		</view>
+		<view class='form-item'>
+			<text>主持人</text>
+			<input name="host" value="{{host}}" type='text' placeholder-style='hint-style' placeholder='请输入主持人'></input>
+		</view>
+		<view class='form-item'>
+			<text>预约人</text>
+			<input name="appointmenter" value="{{appointmenter}}" type='text' placeholder-style='hint-style' placeholder='请输入预约人'></input>
+		</view>
+		<view class='form-item'>
+			<text>发起单位</text>
+			<input name="unit" value="{{unit}}" type='text' placeholder-style='hint-style' placeholder='请输入发起单位'></input>
+		</view>
+		<view class='form-item form-item-bottom'>
+			<text>会议功能</text>
+			<!-- <rich-text type="text" style="width:660rpx;height:160rpx;border:1rpx solid #eee;" placeholder-style='font-size:28rpx;' placeholder='请描述会议功能'></rich-text> -->
+			<input name="description" value="{{description}}"  type='text'  placeholder-style='font-size:28rpx;' placeholder="请描述会议功能"></input>
+		</view>
+	</form>
+	<button bindtap="toNext" class="btn-next">下一步</button>
+</view>

@@ -1,0 +1,75 @@
+<!--conferee.wxml-->
+
+<view class="confereeForm">
+
+	<!-- 参会人员 -->
+	<view class="conferee-form">
+		<view class="conferee-form-title">
+			<text class="select-title">参会人员</text>
+			<view class="title-line"></view>
+		</view>
+		<form catchsubmit="formSubmit" catchreset="formReset">
+			<view class="conferee-options">
+				<view class="search">
+					<label class="select-all">
+						<radio value="r1" checked="{{isselectAll}}" bindtap="rselectAll"/>全选
+					</label>
+					<text class="conferee-count">（共 {{ count }}项）</text>
+					<view class="search-input">
+						<input class="input" type="number" confirm-type="search-input"
+							placeholder-style="20rpx;padding:0 10rpx;line-height:60rpx;" placeholder="请输入关键词" />
+						<image bindtap="toSearch" class="search-icon" src="../../assets/images/search_icon_white.png"
+							style="width: 23rpx;height: 25rpx;"></image>
+					</view>
+				</view>
+				<view class="checkbox" name="checkbox">
+					<label class="radio" class="checkbox-item" wx:for="{{confereeData1}}" wx:key="id">
+						<radio checked="{{item.checked}}" value="item.value" />{{item.label}}
+					</label>
+				</view>
+				<view class="handle">
+					<button class="create-btn" bindtap="createMeeting" form-type="submit">添加</button>
+				</view>
+			</view>
+		</form>
+	</view>
+
+	<!-- 确定参会人员 -->
+	<view class="conferee-form">
+		<view class="conferee-form-title">
+			<text class="select-title">确定参会人员</text>
+			<view class="title-line"></view>
+		</view>
+		<form catchsubmit="formSubmit" catchreset="formReset">
+			<view class="conferee-options">
+				<view class="search">
+					<label class="select-all">
+						<checkbox bindtap="selectAll" value="checkboxAll" />全选
+					</label>
+					<text class="conferee-count">（共 {{ count }}项）</text>
+					<view class="search-input">
+						<input class="input" type="number" confirm-type="search-input"
+							placeholder-style="20rpx;padding:0 10rpx;line-height:60rpx;" placeholder="请输入关键词" />
+						<image bindtap="toSearch" class="search-icon" src="../../assets/images/search_icon_white.png"
+							style="width: 23rpx;height: 25rpx;"></image>
+					</view>
+				</view>
+				<checkbox-group class="checkbox" name="checkbox">
+					<label class="checkbox-item" wx:for="{{confereeData}}" wx:key="id">
+						<checkbox checked="{{item.checked}}" value="item.value" />{{item.label}}
+					</label>
+				</checkbox-group>
+				<view class="handle">
+					<button class="delete-btn" bindtap="deleteConferee" style="background-color: #EA372C;">移除</button>
+				</view>
+			</view>
+		</form>
+	</view>
+
+	<view class="btn-area">
+		<button class="btn-reset" formType="reset">取消</button>
+		<button class="btn-save" type="info" formType="submit">保存</button>
+	</view>
+
+
+</view>

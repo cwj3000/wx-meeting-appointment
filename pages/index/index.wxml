@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<view class="list-container">
+	<!-- 顶部搜索查询框 -->
+	<view class="search-top">
+		<view class="option" style="width: 700rpx; height: 70rpx; display: flex; box-sizing: border-box; left: 24rpx; top: 0rpx">
+			<view class='select-box'>
+				<picker class='picker' bindchange='locationChange' value='hangzhou'
+					range='[]'>
+					<view class='select'>会议室
+						<image class='select-img' src="../../assets/images/down_icon.png"></image>
+					</view>
+				</picker>
+			</view>
+			<input type="text" style="background-color: #fff;height: 70rpx;" class="weui-input"
+				placeholder-class="placeholder-style" bindinput="bindReplaceInput" confirm-type="search" placeholder="请选择关键词" name="input" />
+			<view class="btn-search">
+				<image bindtap="toSearch" class="btn-search-img" src="../../assets/images/search_btn.png"></image>
+			</view>
+		</view>
+	</view>
+
+<block wx:if="{{ showItem }}">
+		<!-- 会议列表 -->
+		<view class="meeting-list" >
+		<scroll-view scroll-y="true" style="height:auto;" bindscrolltoupper="upper" bindscrolltolower="lower"
+			bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+			<view class="meeting-list-item" wx:for="{{meetingList}}" wx:key="id" 
+			bindtap="goDetails" 
+			data-id="{{item.id}}" 
+			data-title="{{item.title}}"
+			data-beginTime="{{item.beginTime}}"
+			data-beginTime="{{item.beginTime}}"
+			data-unit="{{item.unit}}"
+			data-host="{{item.host}}"
+			data-speaker="{{item.speaker}}"
+			data-appointmenter="{{item.appointmenter}}">
+				<!-- 会议标题 -->
+				<view class="item-title">
+					<text class="item-title-id">{{item.id}}</text>
+					<text class="item-title-name">{{item.meetingRoom}}</text>
+					<text class="item-title-state">未开始</text>
+					<image class="item-img" src="../../assets/images/up_icon.png"></image>
+				</view>
+				<!-- 会议详情项 -->
+				<view class="item-content">
+					<view class="item-content-1">
+						<text class="item-content-1-title">会议室</text>
+						<text class="item-content-1-detail">{{item.meetingRoom}}</text>
+					</view>
+					<view class="item-content-2">
+						<text class="item-content-1-title">时间</text>
+						<text class="item-content-1-detail">{{item.time}}</text>
+					</view>
+					<view class="item-content-3">
+						<text class="item-content-1-title">发起单位</text>
+						<text class="item-content-1-detail">{{item.unit}}</text>
+					</view>
+					<view class="item-content-4">
+						<text class="item-content-1-title">主持人</text>
+						<text class="item-content-1-detail">{{item.host}}</text>
+					</view>
+					<view class="item-content-5">
+						<text class="item-content-1-title">预约人</text>
+						<text class="item-content-1-detail">{{item.appointmenter}}</text>
+					</view>
+					<view class="item-content-6 itme-content-handle ">
+						<image bindtap="deleteMeeting" class="handle-img" src="../../assets/images/delete_icon.png" />
+						<image class="handle-img" src="../../assets/images/ok_icon.png" />
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</block>
+
+<block wx:else>
+	<view class="show-tips">
+	  <text>抱歉，暂无数据</text>
+	</view>
+</block>
+
+	<button class="create-btn" bindtap="createMeeting">添加会议</button>
+
+</view>

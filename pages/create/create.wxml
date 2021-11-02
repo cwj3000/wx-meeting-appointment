@@ -1,0 +1,43 @@
+<!--create.wxml 新增会议-->
+<view class="form-container">
+	<form bindsubmit="formSubmit" class="formContent">
+		<view class='form-item' style="border-top-right-radius:16rpx;border-top-left-radius:16rpx;">
+			<view><text class="require">*</text>会议名称</view>
+			<input name="name" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入会议名称'></input>
+		</view>
+		<view class='form-item'>
+			<view><text class="require">*</text>开始时间</view>
+			<input name="nl" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入开始时间'></input>
+		</view>
+		<view class='form-item'>
+			<view><text class="require">*</text>结束时间</view>
+			<input name="sg" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入结束时间'></input>
+		</view>
+		<view class='form-item'>
+			<view><text class="require">*</text>会议室</view>
+			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入会议室'></input>
+		</view>
+		<view class='form-item'>
+			<text>主讲人</text>
+			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入主讲人'></input>
+		</view>
+		<view class='form-item'>
+			<text>主持人</text>
+			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入主持人'></input>
+		</view>
+		<view class='form-item'>
+			<text>预约人</text>
+			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入预约人'></input>
+		</view>
+		<view class='form-item'>
+			<text>发起单位</text>
+			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入发起单位'></input>
+		</view>
+		<view class='form-item' style="border-bottom:none;border-bottom-right-radius:16rpx;border-bottom-left-radius:16rpx;">
+			<text>会议功能</text>
+			<!-- <rich-text type="text" style="width:660rpx;height:160rpx;border:1rpx solid #eee;" placeholder-style='font-size:28rpx;' placeholder='请描述会议功能'></rich-text> -->
+			<input  type='text'  placeholder-style='font-size:28rpx;' placeholder="请描述会议功能"></input>
+		</view>
+	</form>
+	<button bindtap="toNext" class="btn-next">下一步</button>
+</view>

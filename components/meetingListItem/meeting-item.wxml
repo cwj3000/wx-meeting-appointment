@@ -1,0 +1,37 @@
+<!--meeting-item.wxml-->
+		<view class="meeting-list-item">
+			<!-- 会议标题 -->
+			<view class="item-title">
+				<text class="item-title-id">1</text>
+				<text class="item-title-name">测试会议</text>
+				<text class="item-title-state">未开始</text>
+				<image class="item-img" src="../../assets/images/up_icon.png"></image>
+			</view>
+			<!-- 会议详情项 -->
+			<view class="item-content">
+				<view class="item-content-1">
+					<text class="item-content-1-title">会议室</text>
+					<text class="item-content-1-detail">会议室测试001</text>
+				</view>
+				<view class="item-content-2">
+					<text class="item-content-1-title">时间</text>
+					<text class="item-content-1-detail">2021-10-27 14:00~2021-10-27 16:00</text>
+				</view>
+				<view class="item-content-3">
+					<text class="item-content-1-title">发起单位</text>
+					<text class="item-content-1-detail">测试单位</text>
+				</view>
+				<view class="item-content-4">
+					<text class="item-content-1-title">主持人</text>
+					<text class="item-content-1-detail">测试001</text>
+				</view>
+				<view class="item-content-5">
+					<text class="item-content-1-title">预约人</text>
+					<text class="item-content-1-detail">李小道</text>
+				</view>
+				<view class="item-content-6 itme-content-handle ">
+					<image class="handle-img" src="../../assets/images/delete_icon.png" />
+					<image  class="handle-img" src="../../assets/images/ok_icon.png" />
+				</view>
+			</view>
+		</view>

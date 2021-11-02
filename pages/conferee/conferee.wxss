@@ -1,0 +1,199 @@
+page {
+	background-color: #fafafa;
+	margin-bottom: 100rpx;
+}
+
+.confereeForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.confereeForm .conferee-form-title {
+	margin: auto;
+	padding: 20rpx;
+	height: 80rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin-top: 0rpx;
+}
+
+.confereeForm .conferee-form-title .title-line {
+	width: 670rpx;
+	height: 1rpx;
+	background: #eee;
+	margin: auto;
+}
+
+.handle .create-btn {
+	background-image: linear-gradient(90deg, #10A5FF, #007DFF);
+	width: 180rpx !important;
+	height: 60rpx;
+	text-align: center;
+	color: #ffffff;
+	margin: 30rpx auto;
+	font-size: 28rpx;
+}
+
+.btn-area {
+	display: flex;
+	flex-direction: row;
+	width: 500rpx;
+	justify-content: space-around;
+	margin: 50rpx auto;
+}
+
+.btn-area .btn-reset,
+.btn-area .btn-save {
+	width: 180rpx;
+	height: 70rpx;
+	font-size: 28rpx;
+	text-align: center;
+	color: #ffffff;
+}
+
+.btn-reset {
+	background-color: #BBBBBB;
+}
+
+.btn-save {
+	font-size: 28rpx;
+	text-align: center;
+	width: 180rpx !important;
+	background-image: linear-gradient(90deg, #10A5FF, #007DFF);
+	color: #ffffff;
+}
+
+.handle .create-btn {
+	background-image: linear-gradient(90deg, #10A5FF, #007DFF);
+	width: 180rpx !important;
+	height: 70rpx;
+	text-align: center;
+	color: #ffffff;
+	margin: 40rpx auto;
+	font-size: 28rpx;
+}
+
+.conferee-options .search {
+	padding: 10rpx 40rpx;
+}
+
+.search {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.conferee-count {
+	flex: 2;
+	font-size: 28rpx;
+}
+
+.select-all {
+	flex: 2;
+}
+
+.search-input {
+	flex: 4;
+	height: 50rpx;
+	border: 1rpx solid #eee;
+	text-align: left;
+	border-radius: 10rpx;
+	padding: 5rpx;
+	font-size: 28rpx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-right: 0;
+}
+
+.search-input .input {
+	margin: auto;
+	line-height: 50rpx;
+	padding-top: 4 10rpx;
+	flex: 7;
+}
+
+.search-icon {
+	padding: 18rpx 20rpx;
+	height: 50rpx;
+	background: #0890FF;
+	border-top-right-radius: 8rpx;
+	border-bottom-right-radius: 8rpx;
+	margin-right: 0rpx;
+}
+
+.conferee-form {
+	padding: 20rpx 0rpx;
+	height: auto;
+	margin: 20rpx 25rpx;
+	width: 700rpx;
+	border-radius: 10rpx;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.conferee-options .checkbox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 30rpx;
+	width: 700rpx;
+	flex-wrap: wrap;
+}
+
+.checkbox-item {
+	width: 200rpx;
+	padding: 10rpx;
+}
+
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+	background-image: linear-gradient(0deg, #10A5FF, #007DFF);
+}
+
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+	width: 30rpx;
+	height: 30rpx;
+	line-height: 28rpx;
+	text-align: center;
+	font-size: 22rpx;
+	color: #ffffff;
+	background: transparent;
+	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+
+/*radio选中后样式  */
+radio .wx-radio-input.wx-radio-input-checked {
+	border: none;
+	background-image: linear-gradient(0deg, #10A5FF, #007DFF);
+}
+
+/*radio选中后图标样式  */
+radio .wx-radio-input.wx-radio-input-checked::before {
+	width: 30rpx;
+	height: 30rpx;
+	line-height: 28rpx;
+	text-align: center;
+	font-size: 22rpx;
+	color: #ffffff;
+	background: transparent;
+	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.delete-btn {
+	background-color: #EA372C !important;
+	width: 180rpx !important;
+	height: 70rpx;
+	text-align: center;
+	color: #ffffff;
+	margin: 40rpx auto;
+	font-size: 28rpx;
+}

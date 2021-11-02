@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+	"meeting-item": "/components/meetingListItem/meeting-item"
+	}
+}

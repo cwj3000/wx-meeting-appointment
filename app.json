@@ -1,0 +1,19 @@
+{
+  "pages":[
+		"pages/login/login",
+		"pages/index/index",
+		"pages/conferee/conferee",
+    "pages/create/create",
+    "pages/details/details",
+    "pages/edit/edit"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "会务预约管理平台",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
+

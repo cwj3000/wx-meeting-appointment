@@ -1,0 +1,42 @@
+<!--login.wxml-->
+<view class="wrapper" >
+	<!-- style="background: url(../../assets/images/login_bg.png) no-repeat;" -->
+  <view class="title">
+		<h3>会务预约管理平台</h3>
+	</view>
+	<view class="login-form">
+    <view class="control-group">
+      <view class="content">
+				<view class="control">
+					<image class="form-icon" src="../../assets/images/iphone_icon.png"></image>
+				  <text class="line"></text>
+					<input type="number" bindinput="bindAccountInput" placeholder="请输入手机号"></input>
+				</view>
+				<view class="decration-line"></view>
+				<view class="control">
+					<image class="form-icon" src="../../assets/images/password_icon.png"></image>
+				  <text class="line"></text>
+					<input type="password" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder="请输入密码"></input>
+				</view>
+			</view>
+			<view class="submit">
+				<button type="submit" class="btn-login" bindtap="toLogin">登录</button>
+			  <button class="btn-msg" bindtap="getMsg">短信登录</button>
+			</view>
+			<view class="forget">
+				<text>快速注册</text>
+				<view class="line"></view>
+				<text>忘记密码</text>
+			</view>
+			<view class="other">
+				<view class="other-title">
+					<view class="other-line"></view>
+					<text class="title-content">其他登录方式</text>
+					<view class="other-line"></view>
+				</view>
+				<image class="wechat-icon" src="../../assets/images/wechat_icon.png" style="height: 70rpx;width: 70rpx;"></image>			
+			  <text  class="wechat-text">微信快捷登录</text>
+			</view>
+    </view>
+  </view>
+</view>
