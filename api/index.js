@@ -1,36 +1,54 @@
 const { request }  = require('../utils/request');
 
-// 获取会议列表
-function getMeetingList() {
+// 获取全部会议室列表
+function getMeetingRoomsList() {
   return request({
-    url: '',
+    url: '/manager/meetingRooms', 
     method: 'GET'
   })
 }
 
-// 新增会议
-function insertMeeting(params) {
+// 查询会议室
+function getMeetingRoomIds(params) {
   return request({
-    url: '',
+    url: '/manager/meetingRooms',
+    method: 'GET',
+    params: params
+  })
+}
+
+// 新增会议室
+function insertMeetingRooms(params) {
+  return request({
+    url: '/manager/meetingRooms',
     method: 'POST',
     data: params
   })
 }
 
-// 删除会议
-function deleteMeeting(id) {
+// 更新会议室
+function updateMeetingRooms(params) {
   return request({
-    url: '',
+    url: '/manager/meetingRooms',
+    method: 'PUT',
+    data: params
+  })
+}
+
+// 删除会议室
+function deleteMeetingRooms(id) {
+  return request({
+    url: '/manager/meetingRooms',
     method: 'DELETE',
-    data: params
+    params: id
   })
 }
 
-// 更新会议
-function updateMeeting(params) {
-  return request({
-    url: '',
-    method: 'POST',
-    data: params
-  })
+
+module.exports = {
+  getMeetingRoomsList,
+  insertMeetingRooms,
+  deleteMeetingRooms,
+  updateMeetingRooms,
+  getMeetingRoomIds
 }

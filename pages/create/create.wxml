@@ -1,43 +1,43 @@
 <!--create.wxml 新增会议-->
 <view class="form-container">
-	<form bindsubmit="formSubmit" class="formContent">
+	<form bindsubmit="formSubmit" class="formContent" bindreset="formReset">
 		<view class='form-item' style="border-top-right-radius:16rpx;border-top-left-radius:16rpx;">
-			<view><text class="require">*</text>会议名称</view>
-			<input name="name" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入会议名称'></input>
+			<view>会议室名称</view>
+			<input name="name" bindinput="getNameInput" value="{{name}}" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入会议室名称'></input>
+		</view>
+		<!-- <view class='form-item' style="border-top-right-radius:16rpx;border-top-left-radius:16rpx;">
+			<view>时间</view>
+			<input name="time" bindinput="getTimeInput" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入开会时间'></input>
+		</view> -->
+		<view class='form-item'>
+			<view><text class="require">*</text>开放开始时间</view>
+			<picker class="picker-timer" mode="time" name="beginTime" value="{{beginTime}}" start="09:01" end="10:01" bindchange="beginTimeChange">
+        <view class="picker" name="beginTime" bindtap="bindTimeChange">
+      		{{beginTime}}
+					<image class="picker-icon" src="../../assets/images/down_icon.png"></image>
+    		</view>
+  		</picker>
 		</view>
 		<view class='form-item'>
-			<view><text class="require">*</text>开始时间</view>
-			<input name="nl" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入开始时间'></input>
+			<view>开放结束时间</view>
+			<picker class="picker-timer" name="endTime" mode="time" value="{{endTime}}" start="09:01" end="10:01" bindchange="endTimeChange">
+        <view class="picker" name="endTime" bindtap="bindTimeChange">
+      		{{endTime}}
+					<image class="picker-icon" src="../../assets/images/down_icon.png"></image>
+    		</view>
+  		</picker>
 		</view>
 		<view class='form-item'>
-			<view><text class="require">*</text>结束时间</view>
-			<input name="sg" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入结束时间'></input>
+			<view>最大容纳人数</view>
+			<input name="max" type='number' value="{{max}}" bindinput="getMaxInput" placeholder-style='font-size:28rpx;' placeholder='请输入最大容纳人数'></input>
 		</view>
-		<view class='form-item'>
-			<view><text class="require">*</text>会议室</view>
-			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入会议室'></input>
-		</view>
-		<view class='form-item'>
-			<text>主讲人</text>
-			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入主讲人'></input>
-		</view>
-		<view class='form-item'>
-			<text>主持人</text>
-			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入主持人'></input>
-		</view>
-		<view class='form-item'>
-			<text>预约人</text>
-			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入预约人'></input>
-		</view>
-		<view class='form-item'>
-			<text>发起单位</text>
-			<input name="tz" type='text' placeholder-style='font-size:28rpx;' placeholder='请输入发起单位'></input>
-		</view>
-		<view class='form-item' style="border-bottom:none;border-bottom-right-radius:16rpx;border-bottom-left-radius:16rpx;">
-			<text>会议功能</text>
-			<!-- <rich-text type="text" style="width:660rpx;height:160rpx;border:1rpx solid #eee;" placeholder-style='font-size:28rpx;' placeholder='请描述会议功能'></rich-text> -->
-			<input  type='text'  placeholder-style='font-size:28rpx;' placeholder="请描述会议功能"></input>
+		<view class='form-item form-admin'>
+			<text>会议室管理员</text>
+			<input name="admin" type='text' value="{{admin}}" bindinput="getAdminInput" placeholder-style='font-size:28rpx;' placeholder='请输入管理员名称'></input>
 		</view>
 	</form>
-	<button bindtap="toNext" class="btn-next">下一步</button>
+	<view class="handle">
+		<button bindtap="toCreate"  class="btn-submit">提交</button>
+		<button bindtap="toReset" class="btn-submit btn-reset">重置</button>
+	</view>
 </view>

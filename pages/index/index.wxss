@@ -9,6 +9,7 @@ page {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-bottom: 120rpx;
 }
 
 /* 搜索框 */
@@ -27,11 +28,13 @@ page {
 .list-container .search-top .option {
 	width: 100%;
 	position: absolute;
-	left: 25rpx;
 	display: flex;
 	top: 0;
 	justify-content: space-around;
 	margin: 0rpx;
+	height: 70rpx; 
+	box-sizing: border-box;
+	left: 24rpx; 
 }
 
 .list-container .search-top .option .select-box {
@@ -63,6 +66,11 @@ page {
 	font-size: 26rpx;
 	color: #9c9c9c;
 	text-align: left;
+}
+
+.top-search-input {
+	background-color: #fff;
+	height: 70rpx;
 }
 
 .btn-search {
@@ -140,7 +148,7 @@ page {
 	margin: 20rpx;
 }
 
-.meeting-list .meeting-list-item .item-content {
+.meeting-list .meeting-list-item .content {
 	display: flex;
 	flex-direction: column;
 }
@@ -160,32 +168,27 @@ page {
 	background-color: #DC0E0E;
 }
 
-.item-content {
+.content {
 	padding: 0 25rpx;
 }
 
-.item-content-1,
-.item-content-2,
-.item-content-3,
-.item-content-4,
-.item-content-5,
-.item-content-6,
+.item-content,
 .item-content-handle {
 	height: 80rpx;
 	display: flex;
 	justify-content: space-between;
 	text-align: center;
 	border-bottom: 1rpx solid #eee;
-	line-height: 100rpx;
+	line-height: 80rpx;
 }
 
-.item-content-1-title {
+.item-content-title {
 	font-size: 28rpx;
 	font-weight: bold;
 	color: #242424;
 }
 
-.item-content-1-detail {
+.item-content-detail {
 	font-size: 24rpx;
 	font-weight: bold;
 	color: #797979;
@@ -201,9 +204,40 @@ page {
 }
 
 .handle-img {
-	width: 30rpx;
-	height: 30rpx;
-	margin-right: 50rpx;
+	width: 32rpx;
+	height: 32rpx;
+	margin: auto;
+}
+
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-end;
+}
+
+.handle {
+	width: 100%;
+	height: auto;
+}
+
+.item-handle {
+	width: 40%;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 28rpx;
+}
+
+.content .item-handle .handle-delete,.content .item-handle .handle-update {
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	margin-left: 25rpx;
+	color: #4e4e4e;
 }
 
 .create-btn {
@@ -213,10 +247,9 @@ page {
 	text-align: center;
 	color: #ffffff;
 	position: fixed;
-	bottom: 80rpx;
+	bottom: 0rpx;
+	left: 0%;
 	border-radius: 40rpx;
-	margin: auto;
-
 }
 
 .show-tips {

@@ -1,43 +1,49 @@
 <!-- edit.wxml -->
 <view class="form-container">
-	<form bindsubmit='formSubmit' bindreset='formReset' class="formContent">
-		<view class='form-item form-list' >
-			<view><text class="require">*</text>会议名称</view>
-			<input name="name" value="{{name}}" type='text' placeholder-style='hint-style' placeholder='请输入会议名称'></input>
+	<form bindsubmit="formSubmit" class="formContent">
+		<view class='form-item form-id'>
+			<text>id</text>
+			<!-- <text class="form-item-id">{{id}}</text>  -->
+			<input name="id" type='text' value='{{id}}' disabled="true" placeholder-style='font-size:28rpx;' style="color:#AFAFAF"></input>
+		</view>
+		<view class="form-item">
+			<text>会议室名称</text>
+			<input name="name" type='text' value="{{name}}" placeholder-style='font-size:28rpx;' placeholder='请输入会议室名称'></input>
+		</view>
+		<!-- <view class="form-item">
+			<text>会议时间</text>
+			<input name="time" type='text' value="{{time}}" placeholder-style='font-size:28rpx;' placeholder='请输入会议室名称'></input>
+		</view> -->
+		<view class='form-item'>
+			<view><text class="require">*</text>开放开始时间</view>
+			<picker class="picker-timer" mode="time" value="{{beginTime}}" name="beginTime" start="09:00" end="10:00" bindchange="beginTimeChange">
+        <view class="picker" name="beginTime" bindtap="bindTimeChange">
+      		{{beginTime}}
+					<image class="picker-icon" src="../../assets/images/down_icon.png"></image>
+    		</view>
+  		</picker>
 		</view>
 		<view class='form-item'>
-			<view><text class="require">*</text>开始时间</view>
-			<input name="begin_time" name="{{beginTime}}" type='text' placeholder-style='hint-style' placeholder='请输入开始时间'></input>
+			<view>开放结束时间</view>
+			<picker class="picker-timer" mode="time" value="{{endTime}}" name="endTime" start="10:01" end="11:01" bindchange="endTimeChange">
+        <view class="picker" name="endTime" bindtap="bindTimeChange">
+      		{{endTime}}
+					<image class="picker-icon" src="../../assets/images/down_icon.png"></image>
+    		</view>
+  		</picker>
 		</view>
 		<view class='form-item'>
-			<view><text class="require">*</text>结束时间</view>
-			<input name="end_time" value="{{endTime}}" type='text' placeholder-style='hint-style' placeholder='请输入结束时间'></input>
+			<text>最大容纳人数</text>
+			<input name="max"  type='number' value="{{max}}" placeholder-style='font-size:28rpx;' placeholder='请输入最大容纳人数'></input>
 		</view>
-		<view class='form-item'>
-			<view><text class="require">*</text>会议室</view>
-			<input name="meetingRoom" value="{{meetingRoom}}" type='text' placeholder-style='hint-style' placeholder='请输入会议室'></input>
+		<view class='form-item form-admin'>
+			<text>会议室管理员</text>
+			<input name="admin" type='text' value='{{admin}}' placeholder-style='font-size:28rpx;' placeholder='请输入管理员名称'></input>
 		</view>
-		<view class='form-item'>
-			<text>主讲人</text>
-			<input name="speaker" value="{{speaker}}" type='text' placeholder-style='hint-style' placeholder='请输入主讲人'></input>
-		</view>
-		<view class='form-item'>
-			<text>主持人</text>
-			<input name="host" value="{{host}}" type='text' placeholder-style='hint-style' placeholder='请输入主持人'></input>
-		</view>
-		<view class='form-item'>
-			<text>预约人</text>
-			<input name="appointmenter" value="{{appointmenter}}" type='text' placeholder-style='hint-style' placeholder='请输入预约人'></input>
-		</view>
-		<view class='form-item'>
-			<text>发起单位</text>
-			<input name="unit" value="{{unit}}" type='text' placeholder-style='hint-style' placeholder='请输入发起单位'></input>
-		</view>
-		<view class='form-item form-item-bottom'>
-			<text>会议功能</text>
-			<!-- <rich-text type="text" style="width:660rpx;height:160rpx;border:1rpx solid #eee;" placeholder-style='font-size:28rpx;' placeholder='请描述会议功能'></rich-text> -->
-			<input name="description" value="{{description}}"  type='text'  placeholder-style='font-size:28rpx;' placeholder="请描述会议功能"></input>
+		<view class="form-item">
+			<button bindtap="updataMeeting" class="btn-next" form-type="submit">提交</button>
+			<button bindtap="reset" class="btn-next" >清空</button>
 		</view>
 	</form>
-	<button bindtap="toNext" class="btn-next">下一步</button>
+	
 </view>

@@ -1,9 +1,5 @@
 {
 	"navigationBarTitleText": "会议列表",
   "usingComponents": {
-		"van-button": "../../wxcomponents/vant/button/index",
-		"van-search": "../../wxcomponents/vant/search/index",
-		"van-dropdown-menu": "../../wxcomponents/vant/dropdown-menu",
-		"van-dropdown-item": "../../wxcomponents/vant/dropdown-item"
 	}
 }

@@ -1,58 +1,35 @@
 <!--details.wxml-->
 <view class="details-container">
-  <!-- <scroll-view scroll-y="true" style="height:auto;" bindscrolltoupper="upper" bindscrolltolower="lower"
-			bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}"> -->
   <view class="item-details">
     <!-- 会议标题 -->
     <view class="item-title">
       <text class="item-title-id">{{item.id}}</text>
-      <text class="item-title-name">{{item.meetingRoom}}</text>
+      <text class="item-title-name">{{item.name}}</text>
       <text class="item-title-state">未开始</text>
       <image class="item-img" src="../../assets/images/up_icon.png"></image>
     </view>
     <!-- 会议详情项 -->
     <view class="item-content">
       <view class="details-item-content">
-        <text class="item-content-title">会议名称:</text>
+        <text class="item-content-title">会议室名称:</text>
         <text class="item-content-detail">{{getTitle}}</text>
       </view>
       <view class="details-item-content">
-        <text class="item-content-title">开始时间:</text>
+        <text class="item-content-title">时间:</text>
         <text class="item-content-detail">{{item.time}}</text>
       </view>
       <view class="details-item-content">
-        <text class="item-content-title">结束时间:</text>
-        <text class="item-content-detail">{{item.unit}}</text>
-      </view>
-      <view class="details-item-content">
-        <text class="item-content-title">会议室:</text>
-        <text class="item-content-detail">{{item.host}}</text>
-      </view>
-      <view class="details-item-content">
-        <text class="item-content-title">主持人:</text>
-        <text class="item-content-detail">{{item.appointmenter}}</text>
-      </view>
-      <view class="details-item-content">
-        <text class="item-content-title">主讲人:</text>
+        <text class="item-content-title">开放开始时间:</text>
         <text class="item-content-detail">{{item.time}}</text>
       </view>
       <view class="details-item-content">
-        <text class="item-content-title">预约人:</text>
+        <text class="item-content-title">开放结束时间:</text>
         <text class="item-content-detail">{{item.unit}}</text>
       </view>
       <view class="details-item-content">
-        <text class="item-content-title">发起单位:</text>
-        <text class="item-content-detail">{{item.host}}</text>
-      </view>
-      <view class="details-item-content">
-        <text class="item-content-title">创建时间:</text>
-        <text class="item-content-detail">{{item.host}}</text>
-      </view>
-      <view class="details-item-content">
-        <text class="item-content-title">会议功能:</text>
-        <text class="item-content-detail">{{item.appointmenter}}</text>
+        <text class="item-content-title">最大容纳人数:</text>
+        <text class="item-content-detail">{{item.max}}</text>
       </view>
     </view>
   </view>
-  <!-- </scroll-view> -->
 </view>

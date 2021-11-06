@@ -2,17 +2,16 @@
 <view class="list-container">
 	<!-- 顶部搜索查询框 -->
 	<view class="search-top">
-		<view class="option" style="width: 700rpx; height: 70rpx; display: flex; box-sizing: border-box; left: 24rpx; top: 0rpx">
+		<view class="option" >
 			<view class='select-box'>
-				<picker class='picker' bindchange='locationChange' value='hangzhou'
+				<picker class='picker' bindchange='locationChange' value='meetingRoom'
 					range='[]'>
 					<view class='select'>会议室
 						<image class='select-img' src="../../assets/images/down_icon.png"></image>
 					</view>
 				</picker>
 			</view>
-			<input type="text" style="background-color: #fff;height: 70rpx;" class="weui-input"
-				placeholder-class="placeholder-style" bindinput="bindReplaceInput" confirm-type="search" placeholder="请选择关键词" name="input" />
+			<input type="text" class="top-search-input"	placeholder-class="placeholder-style" bindinput="bindSearchInput" confirm-type="search" placeholder="请选择关键词" name="keyword" />
 			<view class="btn-search">
 				<image bindtap="toSearch" class="btn-search-img" src="../../assets/images/search_btn.png"></image>
 			</view>
@@ -24,48 +23,53 @@
 		<view class="meeting-list" >
 		<scroll-view scroll-y="true" style="height:auto;" bindscrolltoupper="upper" bindscrolltolower="lower"
 			bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-			<view class="meeting-list-item" wx:for="{{meetingList}}" wx:key="id" 
-			bindtap="goDetails" 
-			data-id="{{item.id}}" 
-			data-title="{{item.title}}"
-			data-beginTime="{{item.beginTime}}"
-			data-beginTime="{{item.beginTime}}"
-			data-unit="{{item.unit}}"
-			data-host="{{item.host}}"
-			data-speaker="{{item.speaker}}"
-			data-appointmenter="{{item.appointmenter}}">
+			<view class="meeting-list-item" wx:for="{{meetingList}}" wx:key="id" >
 				<!-- 会议标题 -->
 				<view class="item-title">
 					<text class="item-title-id">{{item.id}}</text>
-					<text class="item-title-name">{{item.meetingRoom}}</text>
-					<text class="item-title-state">未开始</text>
+					<text class="item-title-name">{{item.name}}</text>
+					<text class="item-title-state">{{ item.status == 1 ? '未开始' : '已结束' }}</text>
 					<image class="item-img" src="../../assets/images/up_icon.png"></image>
 				</view>
 				<!-- 会议详情项 -->
-				<view class="item-content">
-					<view class="item-content-1">
-						<text class="item-content-1-title">会议室</text>
-						<text class="item-content-1-detail">{{item.meetingRoom}}</text>
+				<view class="content">
+					<view class="item-content">
+						<text class="item-content-title">会议室名称</text>
+						<text class="item-content-detail">{{item.name}}</text>
 					</view>
-					<view class="item-content-2">
-						<text class="item-content-1-title">时间</text>
-						<text class="item-content-1-detail">{{item.time}}</text>
+					<view class="item-content">
+						<text class="item-content-title">开会时间</text>
+						<text class="item-content-detail">{{item.time}}</text>
 					</view>
-					<view class="item-content-3">
-						<text class="item-content-1-title">发起单位</text>
-						<text class="item-content-1-detail">{{item.unit}}</text>
+					<view class="item-content">
+						<text class="item-content-title">开放开始时间</text>
+						<text class="item-content-detail">{{item.beginTime}}</text>
 					</view>
-					<view class="item-content-4">
-						<text class="item-content-1-title">主持人</text>
-						<text class="item-content-1-detail">{{item.host}}</text>
+					<view class="item-content">
+						<text class="item-content-title">开放结束时间</text>
+						<text class="item-content-detail">{{item.endTime}}</text>
 					</view>
-					<view class="item-content-5">
-						<text class="item-content-1-title">预约人</text>
-						<text class="item-content-1-detail">{{item.appointmenter}}</text>
+					<view class="item-content">
+						<text class="item-content-title">最大容纳人数</text>
+						<text class="item-content-detail">{{item.max}}</text>
 					</view>
-					<view class="item-content-6 itme-content-handle ">
-						<image bindtap="deleteMeeting" class="handle-img" src="../../assets/images/delete_icon.png" />
-						<image class="handle-img" src="../../assets/images/ok_icon.png" />
+					<view class="item-content">
+						<text class="item-content-title">操作</text>
+						<view class="item-handle">
+							<view class="handle-delete" bindtap="deleteMeeting" data-id="{{item.id}}" data-name="{{item.name}}" data-index="{{index}}">
+								删除<image  class="handle-img" data-id="{{item.id}}" data-name="{{item.name}}" data-index="{{index}}" src="../../assets/images/delete_icon.png" /></view>
+						  <view class="handle-update" bindtap="goEdit" 
+								data-id='{{item.id}}'
+								data-name='{{item.name}}'
+								data-time='{{item.time}}'
+								data-begintime='{{item.beginTime}}'
+								data-endtime='{{item.endTime}}'
+								data-max='{{item.max}}'>
+								<!-- <navigator class="link" url="../edit/edit?id={{item.id}}">编辑</navigator> -->
+							  编辑
+								<image class="handle-img" src="../../assets/images/ok_icon.png" style="margin-left:15rpx;" />
+							</view>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -79,6 +83,8 @@
 	</view>
 </block>
 
-	<button class="create-btn" bindtap="createMeeting">添加会议</button>
+	<view class="handle">
+		<button class="create-btn" bindtap="createMeeting">添加会议</button>
+	</view>
 
 </view>

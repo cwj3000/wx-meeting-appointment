@@ -1,7 +1,5 @@
 /* details.wxss */
-page {
 
-}
 .details-container .item-details {
 	height: auto;
 	width: 700rpx;
@@ -81,7 +79,7 @@ page {
 	font-weight: bold;
   color: #504f4f;
   line-height: 80rpx;
-  flex: 2;
+  flex: 4;
 }
 
 .item-content-detail {

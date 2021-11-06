@@ -10,17 +10,17 @@
 				<view class="control">
 					<image class="form-icon" src="../../assets/images/iphone_icon.png"></image>
 				  <text class="line"></text>
-					<input type="number" bindinput="bindAccountInput" placeholder="请输入手机号"></input>
+					<input type="number" bindinput="bindAccountInput" placeholder="请输入手机号" placeholder-style="font-size:28rpx"></input>
 				</view>
 				<view class="decration-line"></view>
 				<view class="control">
 					<image class="form-icon" src="../../assets/images/password_icon.png"></image>
 				  <text class="line"></text>
-					<input type="password" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder="请输入密码"></input>
+					<input type="password" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder-style="font-size:28rpx;color: #999999;" placeholder="请输入密码"></input>
 				</view>
 			</view>
 			<view class="submit">
-				<button type="submit" class="btn-login" bindtap="toLogin">登录</button>
+				<button type="submit" class="btn-login" bindtap="toLogin" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
 			  <button class="btn-msg" bindtap="getMsg">短信登录</button>
 			</view>
 			<view class="forget">
@@ -34,7 +34,7 @@
 					<text class="title-content">其他登录方式</text>
 					<view class="other-line"></view>
 				</view>
-				<image class="wechat-icon" src="../../assets/images/wechat_icon.png" style="height: 70rpx;width: 70rpx;"></image>			
+				<image class="wechat-icon" bindtap="getUserInfo" src="../../assets/images/wechat_icon.png" style="height: 70rpx;width: 70rpx;"  open-type="getUserInfo" bindgetuserinfo="getUserInfo"></image>			
 			  <text  class="wechat-text">微信快捷登录</text>
 			</view>
     </view>

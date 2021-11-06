@@ -1,4 +1,8 @@
 // app.js
+
+const http = require('./utils/request.js')
+const api = require('./api/index')
+
 App({
   onLaunch() {
     // 展示本地存储能力

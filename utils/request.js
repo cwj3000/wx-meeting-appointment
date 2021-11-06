@@ -1,5 +1,5 @@
 
-const baseURL = '';
+const baseURL = 'http://meeting.api.jhelida.com';
 
 /**
  *  使用Promise 对wx.request进行分装
@@ -12,18 +12,44 @@ function request(params = { methods, url, data }) {
       url: baseURL + params.url,
       method: params.method,
       data: params.data ? JSON.stringify(params.data) : null,
-      header: { 'content-type': 'application/json' },
-      success(res) {
-        const { code } = res.data
-        if (code !== '-1') {
-          // 请求成功
-          resolve(res)
+      header: { 
+        'Content-Type': 'application/json',
+        'accessToken': ''
+       },
+      timeout: 5000,
+      success(res) { 
+        if (res.statusCode == 200) {
+          if (res.data.code == 0) {
+            resolve(res.data);
+          } else {
+            wx.showToast({
+              title: '提示',
+              content: res.data.msg,
+              showCancel: false,
+              success:function(res) {}
+            })
+            reject(res,data);
+          }
         } else {
-          // 请求错误
-          reject('请求错误！')
-        }
+          wx.showToast({
+            title: '提示',
+            content: '网络请求超时！',
+            showCancel: false,
+            success: function(res) {}
+          })
+          reject();
+        } 
+
       },
       fail (err) {
+/*         wx.hideLoading();
+        wx.showToast({
+          title: '提示',
+          content: '网络请求超时！',
+          showCancel: false,
+          success: function(res){}
+        })
+        console.log("err".err) */
         reject(err)
       }
     })
