@@ -11,7 +11,7 @@ function getMeetingRoomsList() {
 // 查询会议室
 function getMeetingRoomIds(params) {
   return request({
-    url: '/manager/meetingRooms',
+    url: '/manager/meetingRooms?keyword=' + params,
     method: 'GET',
     params: params
   })
