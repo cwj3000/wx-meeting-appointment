@@ -10,7 +10,7 @@
 					</view>
 				</picker>
 			</view>
-			<view class="separator">|</view>
+			<!-- <view class="separator">|</view> -->
 			<input type="text" class="top-search-input"	placeholder-class="placeholder-style" bindinput="bindSearchInput" confirm-type="search" placeholder="请选择关键词" name="keyword" />
 			<view class="btn-search">
 				<image bindtap="toSearch" data-keyword="{{keyword}}" class="btn-search-img" src="../../assets/images/search_btn.png"></image>
