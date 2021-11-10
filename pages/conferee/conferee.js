@@ -185,14 +185,6 @@ Page({
 		console.log("onLoad")
 	},
 
-	onShow() {
-		console.log("noShow")
-	},
-
-	onReady() {
-		console.log("onReady")
-	},
-
 	// 全选与反全选
 	selectAll() {
 		var that = this;
@@ -257,8 +249,6 @@ Page({
 	},
 
 	// 搜索人员数据
-	toSearch() {
-
-	},
+	toSearch() {},
 
 })

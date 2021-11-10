@@ -13,12 +13,6 @@ Page({
 	},
 
 	onLoad: function (options) {
-		// 从列表页item传过来的值
-		/*  		console.log('接收端:' + options.id);
-				console.log('接收端：' + options.name);
-				console.log('接收端：' + options.max);
-				console.log('接收端：' + options.beginTime);
-				console.log('接收端：' + options.endTime);  */
 		let that = this;
 		if (options.id == undefined) {
 			return;
@@ -89,13 +83,13 @@ Page({
 				wx.showToast({
 					title: '修改成功！' || res.msg,
 					icon: '',
-					duration: 3000
+					duration: 2000
 				})
 				setTimeout(function(){
 					wx.navigateTo({
 						url: '../index/index',
 					})
-				},3000)
+				},2000)
 			}
 			if (that.data.id == undefined) {
 				wx.redirectTo({

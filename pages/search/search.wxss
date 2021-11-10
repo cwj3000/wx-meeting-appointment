@@ -69,15 +69,15 @@ page {
 	text-align: left;
 }
 
-.top-search-input {
-	background-color: #fff;
-	height: 70rpx;
-}
-
 .separator {
 	line-height:70rpx;
 	margin-left:100rpx;
 	color: #606060;
+}
+
+.top-search-input {
+	background-color: #fff;
+	height: 70rpx;
 }
 
 .btn-search {
@@ -232,7 +232,7 @@ page {
 
 .handle-img {
 	margin-left: 10rpx;
-	padding-right: 8rpx;
+	padding-right: 7rpx;
 }
 
 .link {
@@ -306,20 +306,4 @@ page {
 	font-size: 28rpx;
 	color: rgb(114, 114, 114);
 	padding-top: 100rpx;
-}
-
-/* 悬浮按钮 */
-.top {
-	width: 90rpx;
-	height: 90rpx;
-	position: fixed;
-	bottom: 200rpx;
-	right: 50rpx;
-}
-
-.top .top-img{
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	box-shadow: 2rpx 8rpx 8rpx #c8c8c8 ;
 }

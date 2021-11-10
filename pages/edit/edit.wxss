@@ -44,12 +44,18 @@ page {
 
 .btn-next {
 	background-image: linear-gradient(90deg, #10A5FF, #007DFF);
-	width: 45% !important;
+	width: 35% !important;
 	height: 80rpx;
 	text-align: center;
 	color: #ffffff;
 	margin: 70rpx auto;
-  border-radius: 40rpx;
+	border-radius: 40rpx;
+	font-size: 30rpx;
+	padding-top: 21rpx;
+}
+
+.btn-reset {
+	background-image: linear-gradient(90deg, rgb(204, 204, 204), rgb(204, 204, 204)) !important;
 }
 
 .require {
@@ -62,14 +68,14 @@ page {
 }
 
 .form-list {
-	border-top-right-radius:16rpx;
-	border-top-left-radius:16rpx;
+	border-top-right-radius: 16rpx;
+	border-top-left-radius: 16rpx;
 }
 
 .form-item-bottom {
-	border-bottom:none;
-	border-bottom-right-radius:16rpx;
-	border-bottom-left-radius:16rpx;
+	border-bottom: none;
+	border-bottom-right-radius: 16rpx;
+	border-bottom-left-radius: 16rpx;
 }
 
 .form-item .picker-timer {
@@ -98,12 +104,12 @@ page {
 }
 
 .form-admin {
-	border-bottom:none;
-	border-bottom-right-radius:16rpx;
-	border-bottom-left-radius:16rpx;
+	border-bottom: none;
+	border-bottom-right-radius: 16rpx;
+	border-bottom-left-radius: 16rpx;
 }
 
 .form-id {
-	border-top-right-radius:16rpx;
-	border-top-left-radius:16rpx;
+	border-top-right-radius: 16rpx;
+	border-top-left-radius: 16rpx;
 }

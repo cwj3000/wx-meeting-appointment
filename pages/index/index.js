@@ -1,29 +1,36 @@
 // index.js
 const app = getApp();
 const mRequest = require('../../api/index')
+const utils = require('../../utils/util')
 
 Page({
 	data: {
-		baseURL: 'http://meeting.api.jhelida.com',
-		showItem: true, // 是否显示列表数据
-		searchList: [], // 查询列表
+		// baseURL: 'http://meeting.api.jhelida.com',
+		scrollTop: 0,
+		showItem: true,  // 是否显示列表数据
+		searchList: [],  // 查询列表
 		meetingList: [], // 全部数据列表
-		keyword: '', // 查询关键词
-		roomId: undefined
+		keyword: '',     // 查询关键词
+		id: '',          //会议室id
+		status: '',      // 0：会议未开始, 1：会议正在进行, 2：会议已结束
+		optionIndex: [0,1], // 下拉选项索引
+		option: ['会议室'],  // 选项
 	},
 
 	// 加载会议列表数据
 	onLoad() {
+		this.getMeetingList();
+	},
+
+	// 获取会议数据
+	getMeetingList:function() {
 		const that = this
 		mRequest.getMeetingRoomsList().then(res => {
 			if (res) {
-				console.log(res);
-				let list = res.data.items;
 				let listData = res.data;
 				if (listData == null) {
-					let toastText = '获取数据失败' + res.data.msg;
 					wx.toastText({
-						title: toastText,
+						title: '获取数据失败' + res.data.msg,
 						icon: '',
 						duration: 2000
 					});
@@ -42,37 +49,85 @@ Page({
 		})
 	},
 
-	// 搜索/查询会议室
-	toSearch(e) {
-		const that = this;
-		console.log(that.data.keyword);
-		mRequest.getMeetingRoomIds(that.data.keyword).then(res => {
-			if (res.data.items.length == 0) {
-				wx.showToast({
-					title: '暂无数据~',
-					icon: 'loading',
-					duration: 2000
-				})
-			} else {
-				console.log(res);
-				let searchList = res.data.items;
-				that.setData({
-					meetingList: searchList
-				})
-				wx.showToast({
-					title: '查询成功',
-					duration: 2000
-				})
-			}
-		}).catch(err => {
-			console.log('error:', err);
-			that.setData({
-				showItem: false
-			})
+	// 会议排序
+	toUp: function (e) {
+		let i = utils.$attr(e, 'i')
+		let temp = this.data.meetingList[i]
+		this.data.meetingList[i] = this.data.meetingList[i-1]
+		this.data.meetingList[i-1] = temp
+		this.setData({
+			meetingList: this.data.meetingList
 		})
 	},
+  toDown:function(e) {
+    let i =utils.$attr(e,'i')
+    let temp = this.data.meetingList[i]
+    this.data.meetingList[i] = this.data.meetingList[i+1]
+    this.data.meetingList[i+1] = temp
+    this.setData({
+      meetingList:this.data.meetingList
+    })
+	},
+	
+	// 返回顶部
+	toTop:function(e) {
+		if(wx.pageScrollTo) {
+			wx.pageScrollTo({
+				scrollTop: 0
+			})
+		}
+	},
+	
+  //下拉刷新
+  onPullDownRefresh:function() {
+    wx.showLoading({
+      title: '加载中',
+		});
+		this.getMeetingList()
+		setTimeout(function(){
+			wx.hideLoading()
+		},1000);
+    wx.stopPullDownRefresh(); 
+  },
 
-	// 触发并传参到修改页面
+	// 搜索/查询会议室
+	toSearch(e) {
+		let keyword = e.currentTarget.dataset.keyword;
+		wx.navigateTo({
+			url: `/pages/search/search?keyword=${keyword}`,
+		})
+	},
+	/* 	toSearch(e) {
+			const that = this;
+			console.log(that.data.keyword);
+			mRequest.getMeetingRoomIds(that.data.keyword).then(res => {
+				if (res.data.items.length == 0) {
+					wx.showToast({
+						title: '暂无数据~',
+						icon: 'loading',
+						duration: 2000
+					})
+				} else {
+					console.log(res);
+					let searchList = res.data.items;
+					that.setData({
+						meetingList: searchList
+					})
+					wx.showToast({
+						title: '查询成功',
+						duration: 2000
+					})
+				}
+			}).catch(err => {
+				console.log('error:', err);
+				that.setData({
+					showItem: false
+				})
+			})
+		},
+	 */
+	
+	 // 编辑
 	goEdit: function (e) {
 		let id = e.currentTarget.dataset.id;
 		let time = e.currentTarget.dataset.time;
@@ -80,18 +135,12 @@ Page({
 		let beginTime = e.currentTarget.dataset.begintime;
 		let endTime = e.currentTarget.dataset.endtime;
 		let max = e.currentTarget.dataset.max;
-		/* 		console.log("发送端:" + id);
-				console.log("发送端:" + name);
-				console.log("发送端: " + beginTime);
-				console.log("发送端:" + endTime);
-				console.log("发送端: " + max);
-				console.log("发送端: " + time); */
 		wx.navigateTo({
 			url: '/pages/edit/edit?id=' + id + '&time=' + time + '&name=' + name + '&beginTime=' + beginTime + '&endTime=' + endTime + '&max=' + max
 		})
 	},
 
-	// 新增页面
+	// 新增
 	createMeeting() {
 		wx.navigateTo({
 			url: '../create/create'
@@ -101,9 +150,7 @@ Page({
 	// 删除会议室
 	deleteMeeting: function (e) {
 		let that = this;
-		var _id = {
-			id: e.currentTarget.dataset.id
-		};
+		var _id = e.currentTarget.dataset.id;
 		wx.showModal({
 			title: '提示',
 			content: '确定要删除[' + e.currentTarget.dataset.name + ']吗？',
@@ -117,7 +164,8 @@ Page({
 						if (res.code == '0') {
 							that.data.meetingList.splice(e.target.dataset.index, 1);
 							wx.showToast({
-								title: "删除成功！" + res.msg,
+								// title: "删除成功！" + res.msg,
+								title: "删除成功！",
 								duration: 2000
 							});
 							that.setData({

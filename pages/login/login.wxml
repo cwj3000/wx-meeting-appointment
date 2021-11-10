@@ -10,13 +10,13 @@
 				<view class="control">
 					<image class="form-icon" src="../../assets/images/iphone_icon.png"></image>
 				  <text class="line"></text>
-					<input type="number" bindinput="bindAccountInput" placeholder="请输入手机号" placeholder-style="font-size:28rpx"></input>
+					<input type="number" value="admin" bindinput="bindAccountInput" placeholder="请输入账号" placeholder-style="font-size:28rpx"></input>
 				</view>
 				<view class="decration-line"></view>
 				<view class="control">
 					<image class="form-icon" src="../../assets/images/password_icon.png"></image>
 				  <text class="line"></text>
-					<input type="password" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder-style="font-size:28rpx;color: #999999;" placeholder="请输入密码"></input>
+					<input type="password" value="12345678" bindinput="bindPasswordInput" bindfocus="pwdFocus" bindblur="pwdBlur" placeholder-style="font-size:28rpx;color: #999999;" placeholder="请输入密码"></input>
 				</view>
 			</view>
 			<view class="submit">

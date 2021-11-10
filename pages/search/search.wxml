@@ -1,37 +1,34 @@
-<!--index.wxml-->
+<!--search.wxml-->
 <view class="list-container">
 	<!-- 顶部搜索查询框 -->
 	<view class="search-top">
-		<view class="option">
+		<view class="option" >
 			<view class='select-box'>
-				<!-- 选项 -->
-				<picker class="picker" bindchange='locationChange' value='meetingRoom' value="{{optionIndex}}"
-					range="{{option}}">
-					<view class="select">会议室
+				<picker class='picker' bindchange='locationChange' value='meetingRoom' value="{{optionIndex}}" range="{{option}}" >
+					<view class='select'>会议室
 						<image class='select-img' src="../../assets/images/down_icon.png"></image>
 					</view>
 				</picker>
 			</view>
 			<view class="separator">|</view>
-			<input type="text" class="top-search-input" placeholder-class="placeholder-style" bindinput="bindSearchInput"
-				confirm-type="search" placeholder="请选择关键词" name="keyword" />
-			<!-- 搜索 -->
+			<input type="text" class="top-search-input"	placeholder-class="placeholder-style" bindinput="bindSearchInput" confirm-type="search" placeholder="请选择关键词" name="keyword" />
 			<view class="btn-search">
 				<image bindtap="toSearch" data-keyword="{{keyword}}" class="btn-search-img" src="../../assets/images/search_btn.png"></image>
 			</view>
 		</view>
 	</view>
 
-	<block wx:if="{{ showItem }}">
+<block wx:if="{{ showItem }}">
 		<!-- 会议列表 -->
-		<view class="meeting-list">
-			<scroll-view scroll-y="true" style="height:auto;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-				<view class="meeting-list-item" wx:for="{{meetingList}}" wx:key="index">
+		<view class="meeting-list" >
+		<scroll-view scroll-y="true" style="height:auto;" bindscrolltoupper="upper" bindscrolltolower="lower"
+			bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+			<view class="meeting-list-item" wx:for="{{searchList}}" wx:key="id" >
 					<!-- 会议标题 -->
 					<view class="item-title">
 						<text class="item-title-id">{{item.id}}</text>
 						<text class="item-title-name">{{item.name}}</text>
-						<text class="item-title-state" style="background-color:{{status == '2' ? '#0890FF' : '#BBBABA'}}">{{ status == '1' ? '未开始' : '已结束' }}</text>
+						<text class="item-title-state" style="background-color:{{status == '2' ? '#CE2B2B' : '#0890FF'}}">{{ status == '1' ? '未开始' : '已结束' }}</text>
 						<block wx:if="{{index == 0}}">
 						  <image data-i="{{index}}" data-id="{{item.id}}" class="item-img" src="../../assets/images/down1_icon.png"bindtap="toDown"></image>
 						</block>
@@ -39,28 +36,28 @@
 							<image data-i="{{index}}" data-id="{{item.id}}" class="item-img" src="../../assets/images/up_icon.png"bindtap="toUp"></image>
 						</block>
 					</view>
-					<!-- 会议详情项 -->
-					<view class="content">
-						<view class="item-content">
-							<text class="item-content-title">会议室名称</text>
-							<text class="item-content-detail">{{item.name}}</text>
-						</view>
-						<view class="item-content">
-							<text class="item-content-title">开会时间</text>
-							<text class="item-content-detail">{{item.time}}</text>
-						</view>
-						<view class="item-content">
-							<text class="item-content-title">开放开始时间</text>
-							<text class="item-content-detail">{{item.beginTime}}</text>
-						</view>
-						<view class="item-content">
-							<text class="item-content-title">开放结束时间</text>
-							<text class="item-content-detail">{{item.endTime}}</text>
-						</view>
-						<view class="item-content">
-							<text class="item-content-title">最大容纳人数</text>
-							<text class="item-content-detail">{{item.max}}</text>
-						</view>
+				<!-- 会议详情项 -->
+				<view class="content">
+					<view class="item-content">
+						<text class="item-content-title">会议室名称</text>
+						<text class="item-content-detail">{{item.name}}</text>
+					</view>
+					<view class="item-content">
+						<text class="item-content-title">开会时间</text>
+						<text class="item-content-detail">{{item.time}}</text>
+					</view>
+					<view class="item-content">
+						<text class="item-content-title">开放开始时间</text>
+						<text class="item-content-detail">{{item.beginTime}}</text>
+					</view>
+					<view class="item-content">
+						<text class="item-content-title">开放结束时间</text>
+						<text class="item-content-detail">{{item.endTime}}</text>
+					</view>
+					<view class="item-content">
+						<text class="item-content-title">最大容纳人数</text>
+						<text class="item-content-detail">{{item.max}}</text>
+					</view>
 						<!-- 操作 -->
 						<view class="item-content last-item">
 							<text class="item-content-title">操作</text>
@@ -93,25 +90,16 @@
 								</view>
 							</view>
 						</view>
-					</view>
 				</view>
-			</scroll-view>
-		</view>
-	</block>
-	<block wx:else>
-		<view class="show-tips">
-			<text>抱歉，暂无数据</text>
-		</view>
-	</block>
-
-<!-- 添加会议 -->
-	<view class="handle">
-		<button class="create-btn" bindtap="createMeeting">添加会议</button>
+			</view>
+		</scroll-view>
 	</view>
+</block>
 
-<!-- 返回顶部 -->
-	<view class="top">
-	   <image src="../../assets/images/top-icon.png" class="top-img" bindtap="toTop"></image>
+<block wx:else>
+	<view class="show-tips">
+	  <text>抱歉，暂无数据</text>
 	</view>
+</block>
 
 </view>

@@ -5,7 +5,8 @@
 		"pages/conferee/conferee",
     "pages/create/create",
     "pages/details/details",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/search/search"
   ],
   "window":{
     "backgroundTextStyle":"light",

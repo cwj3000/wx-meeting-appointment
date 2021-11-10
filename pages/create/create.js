@@ -43,13 +43,13 @@ Page({
 						if(res.code == '0') {
 							wx.showToast({
 								title: '添加成功！',
-								duration: 3000
+								duration: 2000
 							});
 							setTimeout(function(){
 								wx.navigateTo({
 									url:'../index/index'
 								})
-							},3000)
+							},2000)
 						} else {
 							wx.showToast({
 								title: '添加失败',

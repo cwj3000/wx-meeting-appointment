@@ -84,6 +84,7 @@ page {
 	margin: 70rpx auto;
 	border-radius: 40rpx;
 	font-size: 30rpx !important;
+	padding-top: 21rpx;
 }
 
 .handle .btn-reset {
